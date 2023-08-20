@@ -14,15 +14,20 @@ class InsertionSortRecursivo {
     }   
     
     private static void insertionSort(String[] v, int ini, int fim){
-        int i = ini;
-
-        while (i < fim){
-            if (Integer.parseInt(v[i]) > Integer.parseInt(v[i+1])){
-                String aux = v[i];
-                v[i] = v[i+1];
-                v[i+1] = aux;
-                i++;
-            }
+        if (fim <= 0) {
+            return;
         }
+
+        insertionSort(v, ini, fim - 1);
+
+        String currentElement = v[fim];
+        int i = fim - 1;
+
+        while (i >= 0 && Integer.parseInt(v[i]) > Integer.parseInt(currentElement)) {
+            v[i + 1] = v[i];
+            i--;
+        }
+
+        v[i + 1] = currentElement;
     }
 }
