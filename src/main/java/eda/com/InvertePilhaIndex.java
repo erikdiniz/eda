@@ -1,34 +1,69 @@
 package eda.com;
 
-import java.util.Scanner;
-
-class InvertePilhaIndex {
+/*
+ * Classe cirada para exemplificar a utilização da pilha.
+ */
+public class InvertePilhaIndex {
     public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
+        Stack pilha = new Stack(10);
+        int[] array = new int[10];
+        int index = 6;
 
-        int tamanho = sc.nextInt();
-        String[] v = sc.nextLine().split(" ");
-        String limpaBuffer = sc.nextLine();
-        int index = sc.nextInt();
+        for (int i = 1; i <= pilha.size(); i++){
+            pilha.push(i);
+        }
 
-        
-        int[] array = new int[tamanho];
-        int j = 0;
+        for (int i = index; i >= 0; i--){
+            array[i] = pilha.pop();
+        }
 
-        for (int i = index; i < tamanho; i++){
-            array[j] = Integer.parseInt(v[i]);
+        int j = index+1;
+        while (!pilha.isEmpty()){
+            array[j] = pilha.pop();
             j++;
         }
 
-        for (int i = index - 1; i >= 0; i--){
-            array[j] = Integer.parseInt(v[i]);
-            j++;
-        }
-
-        System.out.println("-");
-
-        for (int i = 0; i < tamanho; i++){
+        for (int i = 0; i < pilha.size(); i++) {
             System.out.println(array[i]);
         }
+    }
+}
+
+class Stack {
+    private int[] array;
+    private int top;
+
+    public Stack(int tamanho){
+        this.array = new int[tamanho];
+        this.top = -1;
+    }
+
+    public boolean isEmpty(){
+        return this.top == -1;
+    }
+
+    public boolean isFull(){
+        return this.top == array.length - 1;
+    }
+
+    public int size(){
+        return array.length;
+    }
+
+    public int peek(){
+        return array[top];
+    }
+
+    public void push(int num){
+        this.top += 1;
+        this.array[top] = num;
+    }
+
+    public int pop(){
+        if (!isEmpty())
+            return this.array[top--];
+        else
+            throw new StackOverflowError("errou");
+            
     }
 }
