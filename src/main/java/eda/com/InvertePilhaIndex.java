@@ -1,7 +1,5 @@
 package eda.com;
 
-import eda.com.Stack;
-
 /*
  * O programa recebe uma pilha como entrada, inverte os 
  * valores dessa pilha até um determinado índice também lido 
@@ -11,25 +9,16 @@ import eda.com.Stack;
 class InvertePilhaIndex {
     public static void main(String[] args){
         Stack pilha = new Stack(10);
-        int[] array = new int[10];
-        int index = 5;
+        int index = 4;
 
         for (int i = 1; i <= pilha.size(); i++){
             pilha.push(i);
         }
 
-        for (int i = index; i >= 0; i--){
-            array[i] = pilha.pop();
-        }
+        int[] v = pilha.inverteIndex(index);
 
-        int j = index+1;
-        while (!pilha.isEmpty()){
-            array[j] = pilha.pop();
-            j++;
-        }
-
-        for (int i = 0; i < pilha.size(); i++) {
-            System.out.println(array[i]);
+        for (int i = 0; i < v.length; i++) {
+            System.out.println(v[i]);
         }
     }
 }

@@ -14,18 +14,7 @@ class MaxPilhaIndex {
         }
 
         int index = sc.nextInt();
-        int maior = pilha.peek();
-        int j = 0;
 
-        while (j <= index){
-            int num = pilha.pop();
-
-            if (num > maior){
-                maior = num;
-            }
-            j++;
-        }
-
-        System.out.println(maior);
+        System.out.println(pilha.getMax(index));
     }    
 }

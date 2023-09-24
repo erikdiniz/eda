@@ -33,4 +33,44 @@ public class Stack {
     public int pop(){
         return this.array[top--];            
     }
+
+    public int[] inverteIndex(int index){          
+        int[] v = new int[size()];
+        int j = 0;
+
+        for (int i = index; i >= 0; i--){
+            v[i] = pop();
+            j++;
+        }
+
+        while (!isEmpty()){
+            v[j] = pop();
+            j++;
+        }
+        return v;
+    }
+
+    public int getMax(int index){
+        int maior = peek();
+        int[] v = new int[size()];
+        int j = 0;
+
+        while (j <= index) {
+            v[j] = pop();
+
+            if (v[j] > maior){
+                maior = v[j];
+            }
+
+            j++;
+        }
+
+        j--;
+        while (j >= 0){
+            push(v[j]);
+            j--;
+        }
+
+        return maior;
+    }
 }
