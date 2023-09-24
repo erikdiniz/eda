@@ -3,7 +3,10 @@ package eda.com;
 import eda.com.Stack;
 
 /*
- * O programa recebe uma pilha como entrada, inverte os valores dessa pilha até um determinado índice também lido da entrada. Considere que o topo está no índice 0, o elemento abaixo dele no índice 1 e assim por diante.
+ * O programa recebe uma pilha como entrada, inverte os 
+ * valores dessa pilha até um determinado índice também lido 
+ * da entrada. Considere que o topo está no índice 0, o 
+ * elemento abaixo dele no índice 1 e assim por diante.
  */
 class InvertePilhaIndex {
     public static void main(String[] args){
