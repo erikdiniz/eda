@@ -31,10 +31,6 @@ public class Stack {
     }
 
     public int pop(){
-        if (!isEmpty())
-            return this.array[top--];
-        else
-            throw new StackOverflowError("errou");
-            
+        return this.array[top--];            
     }
 }
