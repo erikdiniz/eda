@@ -34,19 +34,40 @@ public class Stack {
         return this.array[top--];            
     }
 
+    private Stack copia(){
+        Stack copia = new Stack(size());
+        int[] v = new int[size()];
+        
+        for (int i = v.length-1; i >= 0; i--){
+            v[i] = pop();
+        }
+
+        for (int i = 0; i < v.length; i++){
+            push(v[i]);
+        }
+
+        for (int i = 0; i < v.length; i++){
+            copia.push(v[i]);
+        }
+
+        return copia;
+    }
+
     public int[] inverteIndex(int index){          
         int[] v = new int[size()];
         int j = 0;
+        Stack copia = copia();
 
         for (int i = index; i >= 0; i--){
-            v[i] = pop();
+            v[i] = copia.pop();
             j++;
         }
 
-        while (!isEmpty()){
-            v[j] = pop();
+        while (!copia.isEmpty()){
+            v[j] = copia.pop();
             j++;
         }
+        
         return v;
     }
 
