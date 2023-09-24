@@ -8,7 +8,7 @@ public class LinkedList {
     private int size;
 
     public boolean isEmpty(){
-        return this.head == null;
+        return this.size == 0;
     }
 
     public int size(){
@@ -185,5 +185,17 @@ public class LinkedList {
         }
 
         return false;        
+    }
+
+    public String toString(){
+        String retorno = "";
+
+        NodeLinkedList node = head;
+        while (node != null){
+            retorno += String.valueOf(node.getData()) + " ";
+            node = node.getNext();
+        }
+
+        return retorno.trim();
     }
 }
