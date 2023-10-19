@@ -89,4 +89,91 @@ public class BST {
         else
             return recursiveSearch(node.getLeft(), value);
     }
+
+    public NodeBST min(){
+        if (isEmpty())
+            return null;
+
+        return min(this.root);
+    }
+
+    private NodeBST min(NodeBST node){
+        if (node.getLeft() == null)
+            return node;
+        
+        return min(node.getLeft());
+    }
+
+    public NodeBST max(){
+        if (isEmpty())
+            return null;
+
+        return max(this.root);
+    }
+
+    private NodeBST max(NodeBST node){
+        if (node.getRight() == null)
+            return node;
+        
+        return max(node.getRight());
+    }
+
+    public NodeBST sucessor(NodeBST node){
+        if (node == null)
+            return null;
+        
+        if (node.getRight() != null)
+            return min(node.getRight());
+        
+        NodeBST aux = node.getParent();
+
+        while (aux != null && aux.getValue() < node.getValue())
+            aux = aux.getParent();
+        
+        return aux;
+    }
+
+    public NodeBST predecessor(NodeBST node){
+        if (node == null)
+            return null;
+
+        if (node.getLeft() != null)
+            return max(node.getLeft());
+        
+        NodeBST aux = node.getParent();
+
+        while (aux != null && aux.getValue() > node.getValue())
+            aux = aux.getParent();
+
+        return aux;        
+    }
+
+    public int height(){
+        return height(this.root);
+    }
+
+    private int height(NodeBST node){
+        if (node == null)
+            return -1;
+        
+        return Math.max(height(node.getLeft()), height(node.getRight()));
+    }
+
+    private boolean isLeaf(NodeBST node){
+        return (node.getLeft() == null && node.getRight() == null);
+    }
+
+    public void remove(NodeBST toRemove){
+        if (isLeaf(toRemove)){
+            if (toRemove.getValue() == this.root.getValue())
+                this.root = null;
+            else {
+                if (toRemove.getValue() > toRemove.getParent().getValue())
+                    toRemove.getParent().setRight(null);
+                else
+                    toRemove.getParent().setLeft(null);
+                
+            }
+        }
+    }
 }
