@@ -163,6 +163,14 @@ public class BST {
         return (node.getLeft() == null && node.getRight() == null);
     }
 
+    private boolean hasOnlyLeftChild(NodeBST node){
+        return (node.getLeft() != null && node.getRight() == null);
+    }
+
+    private boolean hasOnlyRightChild(NodeBST node){
+        return (node.getRight() != null && node.getLeft() == null);
+    }
+
     public void remove(NodeBST toRemove){
         if (isLeaf(toRemove)){
             if (toRemove.getValue() == this.root.getValue())
@@ -172,6 +180,30 @@ public class BST {
                     toRemove.getParent().setRight(null);
                 else
                     toRemove.getParent().setLeft(null);
+                
+            }
+        
+        
+        } else if (hasOnlyLeftChild(toRemove)){
+            if (toRemove.getValue() == this.root.getValue()){
+                this.root = toRemove.getLeft();
+                this.root.setParent(null);                
+            } else {
+                toRemove.getLeft().setParent(toRemove.getParent());
+
+                if (toRemove.getValue() > toRemove.getParent().getValue()){
+                    toRemove.getParent().setRight(toRemove.getLeft());
+                } else {
+                    toRemove.getParent().setLeft(toRemove.getLeft());
+                }
+            }
+        
+        
+        } else if (hasOnlyRightChild(toRemove)){
+            if (toRemove.getValue() == this.root.getValue()){
+                this.root = toRemove.getRight();
+                this.root.setParent(null);
+            } else {
                 
             }
         }
