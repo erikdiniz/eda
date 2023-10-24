@@ -1,5 +1,8 @@
 package eda.com;
 
+import java.util.Deque;
+import java.util.LinkedList;
+
 public class BST {
     private NodeBST root;
 
@@ -191,11 +194,10 @@ public class BST {
             } else {
                 toRemove.getLeft().setParent(toRemove.getParent());
 
-                if (toRemove.getValue() > toRemove.getParent().getValue()){
+                if (toRemove.getValue() > toRemove.getParent().getValue())
                     toRemove.getParent().setRight(toRemove.getLeft());
-                } else {
+                else
                     toRemove.getParent().setLeft(toRemove.getLeft());
-                }
             }
         
         
@@ -204,8 +206,70 @@ public class BST {
                 this.root = toRemove.getRight();
                 this.root.setParent(null);
             } else {
-                
+                toRemove.getRight().setParent(toRemove.getParent());
+
+                if (toRemove.getValue() > toRemove.getParent().getValue())
+                    toRemove.getParent().setRight(toRemove.getRight());
+                else
+                    toRemove.getParent().setLeft(toRemove.getRight());
             }
+        } else {
+            NodeBST sucessor = sucessor(toRemove);
+            toRemove.setValue(sucessor.getValue());
+            remove(sucessor);
+        }
+    }
+
+    public void preOrder(){
+        preOrder(this.root);
+    }
+
+    private void preOrder(NodeBST node){
+        if (node != null){
+            System.out.println(node.getValue());
+            preOrder(node.getLeft());
+            preOrder(node.getRight());
+        }
+    }
+
+    public void inOrder(){
+        inOrder(this.root);
+    }
+
+    private void inOrder(NodeBST node){
+        if (node != null){
+            inOrder(node.getLeft());
+            System.out.println(node.getValue());
+            inOrder(node.getRight());
+        }
+    }
+
+    public void posOrder(){
+        posOrder(this.root);
+    }
+
+    private void posOrder(NodeBST node){
+        if (node != null){
+            posOrder(node.getLeft());
+            posOrder(node.getRight());
+            System.out.println(node.getValue());
+        }
+    }
+
+    public void printBFS(){
+        Deque<NodeBST> queue = new LinkedList<NodeBST>();
+
+        queue.addLast(this.root);
+        
+        while (!queue.isEmpty()){
+            NodeBST current = queue.removeFirst();
+            
+            if (current.getLeft() != null)
+                queue.addLast(current.getLeft());
+            if (current.getRight() != null)
+                queue.addLast(current.getRight());
+    
+            System.out.println(current.getValue());
         }
     }
 }

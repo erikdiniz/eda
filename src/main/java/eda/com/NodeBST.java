@@ -35,6 +35,11 @@ public class NodeBST {
     }
 
     public void setRight(NodeBST node){
-        this.right = node;    }
+        this.right = node;
+    }
+
+    public void setValue(int value){
+        this.value = value;
+    }
 
 }
