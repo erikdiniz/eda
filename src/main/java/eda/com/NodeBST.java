@@ -10,6 +10,10 @@ public class NodeBST {
         this.value = v;
     }
 
+    public boolean isLeaf(){
+        return (this.getLeft() == null && this.getRight() == null);
+    }
+
     public int getValue(){
         return this.value;
     }

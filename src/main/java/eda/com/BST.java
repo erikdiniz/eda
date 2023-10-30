@@ -172,10 +172,6 @@ public class BST {
         return Math.max(height(node.getLeft()), height(node.getRight()));
     }
 
-    private boolean isLeaf(NodeBST node){
-        return (node.getLeft() == null && node.getRight() == null);
-    }
-
     private boolean hasOnlyLeftChild(NodeBST node){
         return (node.getLeft() != null && node.getRight() == null);
     }
@@ -185,7 +181,7 @@ public class BST {
     }
 
     public void remove(NodeBST toRemove){
-        if (isLeaf(toRemove)){
+        if (toRemove.isLeaf()){
             if (toRemove.getValue() == this.root.getValue())
                 this.root = null;
             else {

@@ -1,6 +1,5 @@
 package eda.com;
 
-import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -8,13 +7,13 @@ import java.util.Scanner;
 public class BFSdireita {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        String[] arrayS = sc.nextLine().split(" ");
+        String[] seq = sc.nextLine().split(" ");
 
         BST bst = new BST();  
         Deque<NodeBST> queue = new LinkedList<NodeBST>();      
 
-        for (int i = 0; i < arrayS.length; i++){
-            bst.add(Integer.parseInt(arrayS[i]));
+        for (int i = 0; i < seq.length; i++){
+            bst.add(Integer.parseInt(seq[i]));
         }
 
         queue.addLast(bst.getRoot());
