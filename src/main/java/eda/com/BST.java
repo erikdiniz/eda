@@ -6,34 +6,44 @@ import java.util.LinkedList;
 public class BST {
     private NodeBST root;
 
+    public NodeBST getRoot(){
+        return this.root;
+    }
+
     public boolean isEmpty(){
         return this.root == null;
     }
 
-    public void add(int value){
-        NodeBST node = new NodeBST(value);
-        
+    public void add(int element){
         if (isEmpty())
-            this.root = node;
-        else {
-            NodeBST aux = root;
-
-            while (aux != null){
-                if (value > aux.getValue()){
-                    if (aux.getRight() == null){
-                        aux.setRight(node);
-                        node.setParent(aux);
-                    } else                     
-                        aux = aux.getRight();
-                } else {
-                    if (aux.getLeft() == null){
-                        aux.setLeft(node);
-                        node.setParent(aux);
-                    } else                    
-                        aux = aux.getRight();
+        this.root = new NodeBST(element);
+    else {
+            
+        NodeBST aux = this.root;
+            
+        while (aux != null) {
+                
+            if (element < aux.getValue()) {
+                if (aux.getLeft() == null) { 
+                    NodeBST newNode = new NodeBST(element);
+                    aux.setLeft(newNode);
+                    newNode.setParent(aux);
+                    return;
                 }
+                    
+                aux = aux.getLeft();
+            } else {
+                if (aux.getRight() == null) { 
+                    NodeBST newNode = new NodeBST(element);
+                    aux.setRight(newNode);
+                    newNode.setParent(aux);
+                    return;
+                }
+                    
+                aux = aux.getRight();
             }
         }
+    }
     }
 
     public void recursiveAdd(int value){
@@ -259,17 +269,19 @@ public class BST {
     public void printBFS(){
         Deque<NodeBST> queue = new LinkedList<NodeBST>();
 
-        queue.addLast(this.root);
-        
-        while (!queue.isEmpty()){
+        if (!isEmpty()) {
+            queue.addLast(this.root);
+
+        while (queue.size() > 0) {
             NodeBST current = queue.removeFirst();
-            
-            if (current.getLeft() != null)
-                queue.addLast(current.getLeft());
-            if (current.getRight() != null)
-                queue.addLast(current.getRight());
-    
+                
             System.out.println(current.getValue());
+                
+            if(current.getLeft() != null) 
+                queue.addLast(current.getLeft());
+            if(current.getRight() != null) 
+                queue.addLast(current.getRight());   
         }
+    }
     }
 }
