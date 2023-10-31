@@ -222,7 +222,12 @@ public class BST {
         } else {
             NodeBST sucessor = sucessor(toRemove);
             toRemove.setValue(sucessor.getValue());
-            remove(sucessor);
+            
+            if (toRemove.getValue() == this.root.getValue()){
+                this.root.setValue(sucessor.getValue());
+            }
+
+            remove(sucessor);            
         }
     }
 

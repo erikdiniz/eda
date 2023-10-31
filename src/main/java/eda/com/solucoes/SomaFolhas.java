@@ -21,7 +21,7 @@ public class SomaFolhas {
         
     }
 
-    public static int somaFolhas(NodeBST node){
+    private static int somaFolhas(NodeBST node){
         int sum = 0;
         
         if (node == null)
