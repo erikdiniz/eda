@@ -1,4 +1,4 @@
-package eda.com;
+package algoritmos;
 
 public class NodeBST {
     private int value;

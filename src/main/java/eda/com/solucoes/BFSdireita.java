@@ -1,8 +1,12 @@
-package eda.com;
+package solucoes;
 
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Scanner;
+
+import algoritmos.BST;
+import algoritmos.NodeBST;
+
 
 public class BFSdireita {
     public static void main(String[] args){

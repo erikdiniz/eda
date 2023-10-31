@@ -1,4 +1,6 @@
-package eda.com;
+package algoritmos;
+
+import solucoes.Aluno;
 
 public class TabelaHash {
     private  Aluno[] tabela;

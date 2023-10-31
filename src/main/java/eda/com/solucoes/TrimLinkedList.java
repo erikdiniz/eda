@@ -1,6 +1,9 @@
-package eda.com;
+package solucoes;
 
 import java.util.Scanner;
+
+import algoritmos.LinkedList;
+import algoritmos.NodeLinkedList;
 
 class TrimLinkedList {
     public static void main(String[] args){

@@ -1,6 +1,7 @@
-package eda.com;
-
+package algoritmos;
 import java.util.ArrayList;
+
+import solucoes.Aluno;
 
 public class TabelaHashEncadeamento {
     private  ArrayList<Aluno>[] tabela;

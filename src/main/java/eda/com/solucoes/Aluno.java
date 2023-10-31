@@ -1,4 +1,4 @@
-package eda.com;
+package solucoes;
 
 public class Aluno {
     private int matricula;

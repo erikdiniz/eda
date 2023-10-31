@@ -1,4 +1,6 @@
-package eda.com;
+package solucoes;
+
+import algoritmos.Stack;
 
 /*
  * O programa recebe uma pilha como entrada, inverte os 

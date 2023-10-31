@@ -1,4 +1,4 @@
-package eda.com;
+package algoritmos;
 
 public class BuscaBinaria {
     public static int buscaBinaria(int[] v, int n, int ini, int fim){

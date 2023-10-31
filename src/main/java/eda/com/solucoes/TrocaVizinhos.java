@@ -1,4 +1,4 @@
-package eda.com;
+package solucoes;
 
 import java.util.Scanner;
 import java.util.Arrays;

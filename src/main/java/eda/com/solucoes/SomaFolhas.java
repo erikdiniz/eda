@@ -1,6 +1,9 @@
-package eda.com;
+package solucoes;
 
 import java.util.Scanner;
+
+import algoritmos.BST;
+import algoritmos.NodeBST;
 
 public class SomaFolhas {
     public static void main(String[] args){

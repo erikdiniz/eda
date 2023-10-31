@@ -1,4 +1,4 @@
-package eda.com;
+package algoritmos;
 
 public class NodeLinkedList {
     private NodeLinkedList next;

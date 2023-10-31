@@ -1,5 +1,7 @@
-package eda.com;
+package solucoes;
 import java.util.Scanner;
+
+import algoritmos.Stack;
 
 class MaxPilhaIndex {
     public static void main(String[] args){
